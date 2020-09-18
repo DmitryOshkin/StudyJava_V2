@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class GroupCreationTests {
+public class GroupCreationTests5 {
   private WebDriver wd;
 
 
