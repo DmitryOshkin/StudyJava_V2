@@ -8,7 +8,7 @@ public class Equation {
 
   private int n;
 
-  public Equation (double a, double b, double c) {
+  public Equation(double a, double b, double c) {
 
     this.a = a;
     this.b = b;
@@ -25,6 +25,11 @@ public class Equation {
         n = 0;
       }
     }
-
   }
+    public int rootNumber() {
+      return n;
+    }
+
+
+
 }
