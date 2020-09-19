@@ -19,8 +19,12 @@ public class HelperBase {
   protected void type(By locator, String text) {
     click(locator);
     if (text != null){
-      wd.findElement(locator).clear();
-      wd.findElement(locator).sendKeys(text);
+      String existingText = wd.findElement(locator).getAttribute("value");// использую метод getAttribute("value") только для теста из полей ввода
+      if (! text.equals(existingText)){
+        wd.findElement(locator).clear();
+        wd.findElement(locator).sendKeys(text);
+      }
+
     }
 
   }
