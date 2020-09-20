@@ -24,16 +24,14 @@ public class HelperBase {
         wd.findElement(locator).clear();
         wd.findElement(locator).sendKeys(text);
       }
-
     }
-
-  }
-
-  public boolean isElementPresent(By by) {
+   }
+   /* Метод проверки наличия или отсутствия элемента на странице */
+  public boolean isElementPresent(By locator) {
     try {
-      wd.findElement(by);
+      wd.findElement(locator);
       return true;
-    } catch (NoSuchElementException e) {
+    } catch (NoSuchElementException ex) {
       return false;
     }
   }
