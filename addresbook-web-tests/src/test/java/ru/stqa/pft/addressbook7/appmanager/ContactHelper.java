@@ -3,6 +3,7 @@ package ru.stqa.pft.addressbook7.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.pft.addressbook7.model.ContactData;
 
 public class ContactHelper extends HelperBase {
@@ -26,12 +27,11 @@ public class ContactHelper extends HelperBase {
     type (By.name("address"), contactData.getAddress());
     type (By.name("mobile"), contactData.getMobile());
     type (By.name("email"), contactData.getEmail());
-
-    if (isElementPresent(By.name("new_group"))) { //Если есть элемент с локатором (By.name("new_group"))
+    if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup()); //Выбираю значение из выпадающего списка
+    } else {
+      Assert.assertFalse(isElementPresent(By.name("new_group"))); //Проверка того что элемента не должно быть
     }
-
-
   }
 
   public void gotoAddContactPage() {
