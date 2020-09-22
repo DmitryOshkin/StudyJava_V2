@@ -1,13 +1,13 @@
-package ru.stqa.pft.addressbook7.tests;
+package ru.stqa.pft.addressbook10.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ru.stqa.pft.addressbook7.model.GroupData;
+import ru.stqa.pft.addressbook10.model.GroupData;
 
 import java.util.Comparator;
 import java.util.List;
 
-public class GroupCreationTests7 extends TestBase {
+public class GroupCreationTests10 extends TestBase {
 
 
   @Test

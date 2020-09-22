@@ -1,16 +1,16 @@
-package ru.stqa.pft.addressbook7.tests;
+package ru.stqa.pft.addressbook10.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ru.stqa.pft.addressbook7.model.ContactData;
+import ru.stqa.pft.addressbook10.model.ContactData;
 
 import java.util.Comparator;
 import java.util.List;
 
-public class ContactCreationTests7 extends TestBase {
+public class ContactCreationTests10 extends TestBase {
 
 
-  @Test
+  @Test (enabled = false)
   public void testContactCreation() throws Exception {
     app.getNavigationHelper().gotoHomePage();
     List<ContactData> before = app.getContactHelper().getContactList(); //Создаем список всех контактов до начала создания нового контакта

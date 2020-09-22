@@ -1,15 +1,15 @@
-package ru.stqa.pft.addressbook7.tests;
+package ru.stqa.pft.addressbook10.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ru.stqa.pft.addressbook7.model.ContactData;
+import ru.stqa.pft.addressbook10.model.ContactData;
 
 import java.util.Comparator;
 import java.util.List;
 
-public class ContactModificationTests7 extends TestBase {
+public class ContactModificationTests10 extends TestBase {
 
-  @Test
+  @Test (enabled = false)
   public void testContactModification() {
     app.getNavigationHelper().gotoHomePage();
     if (! app.getContactHelper().isThereAContact()) {

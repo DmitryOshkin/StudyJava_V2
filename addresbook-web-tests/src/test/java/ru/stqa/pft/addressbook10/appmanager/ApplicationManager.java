@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbook7.appmanager;
+package ru.stqa.pft.addressbook10.appmanager;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
