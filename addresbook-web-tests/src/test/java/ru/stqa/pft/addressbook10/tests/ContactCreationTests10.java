@@ -12,11 +12,11 @@ public class ContactCreationTests10 extends TestBase {
 
   @Test (enabled = false)
   public void testContactCreation() throws Exception {
-    app.getNavigationHelper().gotoHomePage();
-    List<ContactData> before = app.getContactHelper().getContactList(); //Создаем список всех контактов до начала создания нового контакта
+    app.goTo().homePage();
+    List<ContactData> before = app.contact().list(); //Создаем список всех контактов до начала создания нового контакта
     ContactData contact = new ContactData("Name1", "LastName", "Moscow, Petrovka 38", "89020000001", "email1@test.com", "test1");
-    app.getContactHelper().createContact(contact, true);
-    List<ContactData> after = app.getContactHelper().getContactList(); //Создаем список всех контактов после создания нового контакта
+    app.contact().create(contact, true);
+    List<ContactData> after = app.contact().list(); //Создаем список всех контактов после создания нового контакта
     Assert.assertEquals(after.size(), before.size() + 1);
 
     //contact.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());    //Вычисление максимального идентификатора через лямбда выражение.                                                          //Присваиваем максимальный элемент в качестве идетификатора новой группы

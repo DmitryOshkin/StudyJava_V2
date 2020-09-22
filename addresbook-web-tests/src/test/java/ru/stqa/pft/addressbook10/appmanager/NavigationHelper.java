@@ -10,7 +10,7 @@ public class NavigationHelper extends HelperBase {
     super(wd);
   }
 
-  public void gotoGroupPage() {
+  public void groupPage() {
     if (isElementPresent(By.tagName("h1"))                                 //Проверяем наличие заголовка "h1" на странице
             && wd.findElement(By.tagName("h1")).getText().equals("Groups") //Далее ищем элемент по локатору, берем его текст и сверяем его содержимое методом equals со значением Groups
             && isElementPresent(By.name("new"))) {                         //Проверяем наличие кнопки создания группы
@@ -19,7 +19,7 @@ public class NavigationHelper extends HelperBase {
     click(By.linkText("groups"));
   }
 
-  public void gotoHomePage() {
+  public void homePage() {
     if (isElementPresent(By.id("maintable"))) { // Проверка наличия элемента таблица на странице
       return;
     }

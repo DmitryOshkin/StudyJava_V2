@@ -50,7 +50,6 @@ public class ContactHelper extends HelperBase {
     wd.findElements(By.name("selected[]")).get(index).click();
   }
 
-
   public void closeAlertAccept() {
     wd.switchTo().alert().accept();
   }
@@ -63,26 +62,31 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("(//input[@name='update'])[2]"));
   }
 
-  public void createContact(ContactData contact, boolean creation) {
+  public void create(ContactData contact, boolean creation) {
     gotoAddContactPage();
     fillContactForm(contact, true);
     submitContactCreation();
     returnToHomePage();
   }
 
-  public void modifyContact(int index, ContactData contact) {
+  public void modify(int index, ContactData contact) {
     // selectContact(index);
     initContactModification(index);
     fillContactForm(contact,false);
     submitContactModification();
     returnToHomePage();
   }
+  public void delete(int index) {
+    selectContact(index);
+    deleteSelectedContacts();
+    closeAlertAccept();
+  }
 
   public boolean isThereAContact() {
     return isElementPresent(By.name("selected[]"));
   }
 
-  public List<ContactData> getContactList() {
+  public List<ContactData> list() {
     List<ContactData> contacts = new ArrayList<ContactData>();                                   //Создаем список который будет заполняться
     List<WebElement> elements = wd.findElements(By.cssSelector("tr[name = 'entry']"));             //Создаем список объектов типа WebElement
     for (WebElement element : elements) {                                                   //Проходим по всемм элементам списка elements
