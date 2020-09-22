@@ -13,11 +13,13 @@ public class ContactDeletionTests10 extends TestBase {
   public void ensurePreconditions() {
     app.goTo().homePage();
     if (app.contact().list().size() == 0) {
-      app.contact().create(new ContactData("Name1", null, "Moscow, Petrovka 38", "89020000001", "email1@test.com", "test1"), false);
+      app.contact().create(new ContactData().withFirstname("Name1")
+              .withAddress("Moscow, Petrovka 38").withMobile("89020000001")
+              .withEmail("email1@test.com").withGroup("test1"), false);
     }
   }
 
-  @Test (enabled = false)
+  @Test //(enabled = false)
   public void testContactDeletion() throws Exception {
     app.goTo().homePage();
     List<ContactData> before = app.contact().list(); //Создаем список всех контактов до начала создания нового контакта

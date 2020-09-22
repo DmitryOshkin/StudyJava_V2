@@ -96,8 +96,9 @@ public class ContactHelper extends HelperBase {
 
 
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));    //Получаем значение элемента внутри другого элемента
-      ContactData contact = new ContactData(id, firstname, lastname, "Moscow, Petrovka 38", "89020000001", "email1@test.com", "test1");                  //Создаем объект типа GroupData
-      contacts.add(contact);                                                                   //Добавляем созданный объект в список
+      contacts.add(new ContactData().withId(id).withFirstname(firstname)
+              .withLastname(lastname).withAddress("Moscow, Petrovka 38")
+              .withMobile("89020000001").withEmail("email1@test.com").withGroup("test1"));                //Добавляем созданный объект в список
     }
     return contacts;
   }
