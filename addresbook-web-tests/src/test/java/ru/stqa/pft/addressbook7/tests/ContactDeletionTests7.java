@@ -20,6 +20,9 @@ public class ContactDeletionTests7 extends TestBase {
     app.getContactHelper().deleteSelectedContacts();
     app.getContactHelper().closeAlertAccept();
     app.getNavigationHelper().gotoHomePage();
+    app.getNavigationHelper().gotoHomePage();
+    app.getNavigationHelper().gotoHomePage();
+    app.getNavigationHelper().gotoHomePage();
     List<ContactData> after = app.getContactHelper().getContactList(); //Создаем список всех контактов после создания нового контакта
     Assert.assertEquals(after.size(), before.size() - 1);
 
