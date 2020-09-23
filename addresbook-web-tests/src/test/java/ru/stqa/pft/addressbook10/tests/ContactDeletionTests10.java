@@ -1,11 +1,13 @@
 package ru.stqa.pft.addressbook10.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook10.model.ContactData;
+import ru.stqa.pft.addressbook10.model.Contacts;
 
-import java.util.Set;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.assertEquals;
 
 public class ContactDeletionTests10 extends TestBase {
 
@@ -22,18 +24,15 @@ public class ContactDeletionTests10 extends TestBase {
   @Test //(enabled = false)
   public void testContactDeletion() throws Exception {
     app.goTo().homePage();
-    Set<ContactData> before = app.contact().all(); //Создаем список всех контактов до начала создания нового контакта
+    Contacts before = app.contact().all(); //Создаем список всех контактов до начала создания нового контакта
     ContactData deletedContact = before.iterator().next(); //Возвращает любой элемент из множества
     app.contact().delete(deletedContact);
     app.goTo().homePage();
     app.goTo().homePage();
     app.goTo().homePage();
     app.goTo().homePage();
-    Set<ContactData> after = app.contact().all(); //Создаем список всех контактов после создания нового контакта
-    Assert.assertEquals(after.size(), before.size() - 1);
-
-    before.remove(deletedContact);  //из первоначального списка убираем тот элемент который удален во время теста.
-    Assert.assertEquals(before, after);     //Сравниваем измененный список со списком полученным после удаления группы
-
+    Contacts after = app.contact().all(); //Создаем список всех контактов после создания нового контакта
+    assertEquals(after.size(), before.size() - 1);
+    assertThat(after, equalTo(before.without(deletedContact)));
   }
 }

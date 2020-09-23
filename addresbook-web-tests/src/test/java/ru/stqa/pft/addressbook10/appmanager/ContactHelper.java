@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook10.model.ContactData;
+import ru.stqa.pft.addressbook10.model.Contacts;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -89,8 +90,8 @@ public class ContactHelper extends HelperBase {
     return isElementPresent(By.name("selected[]"));
   }
 
-  public Set<ContactData> all() {
-    Set<ContactData> contacts = new HashSet<ContactData>();                                   //Создаем множество который будет заполняться
+  public Contacts all() {
+    Contacts contacts = new Contacts();                                   //Создаем множество который будет заполняться
     List<WebElement> elements = wd.findElements(By.cssSelector("tr[name = 'entry']"));             //Создаем список объектов типа WebElement
     for (WebElement element : elements) {                                                   //Проходим по всемм элементам списка elements
       List<WebElement> cells = element.findElements(By.cssSelector("td"));

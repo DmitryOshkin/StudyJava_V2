@@ -1,11 +1,13 @@
 package ru.stqa.pft.addressbook10.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook10.model.GroupData;
+import ru.stqa.pft.addressbook10.model.Groups;
 
-import java.util.Set;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.assertEquals;
 
 public class GroupDeletionTests10 extends TestBase {
 
@@ -19,16 +21,11 @@ public class GroupDeletionTests10 extends TestBase {
 
   @Test
   public void testGroupDeletion() throws Exception {
-    Set<GroupData> before = app.group().all();
+    Groups before = app.group().all();
     GroupData deletedGroup = before.iterator().next();
     app.group().delete(deletedGroup);
-    Set<GroupData> after = app.group().all();
-    Assert.assertEquals(after.size(), before.size() - 1);
-
-    before.remove(deletedGroup);  //из первоначального списка убираем тот элемент который удален во время теста.
-    Assert.assertEquals(before, after);     //Сравниваем измененный список со списком полученным после удаления группы
-
+    Groups after = app.group().all();
+    assertEquals(after.size(), before.size() - 1);
+    assertThat(after, equalTo(before.without(deletedGroup)));
   }
-
-
 }

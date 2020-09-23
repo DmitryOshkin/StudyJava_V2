@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook10.model.GroupData;
+import ru.stqa.pft.addressbook10.model.Groups;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -78,8 +79,8 @@ public class GroupHelper extends HelperBase {
    return wd.findElements(By.name("selected[]")).size();
   }
 
-  public Set<GroupData> all() {
-    Set<GroupData> groups = new HashSet<GroupData>();                                   //Создаем множество которое будет заполняться
+  public Groups all() {
+    Groups groups = new Groups();                                   //Создаем множество которое будет заполняться
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));             //Создаем список объектов типа WebElement
     for (WebElement element : elements){                                                   //Проходим по всемм элементам списка elements
       String name = element.getText();                                                     //Получаем значение (имя группы) из каждого элемента методом getText

@@ -1,11 +1,13 @@
 package ru.stqa.pft.addressbook10.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook10.model.ContactData;
+import ru.stqa.pft.addressbook10.model.Contacts;
 
-import java.util.Set;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.assertEquals;
 
 public class ContactModificationTests10 extends TestBase {
 
@@ -21,19 +23,15 @@ public class ContactModificationTests10 extends TestBase {
 
   @Test //(enabled = false)
   public void testContactModification() {
-    Set<ContactData> before = app.contact().all(); //Создаем список всех контактов до начала создания нового контакта
+    Contacts before = app.contact().all(); //Создаем список всех контактов до начала создания нового контакта
     ContactData modifiedContact = before.iterator().next(); //Возвращает любой элемент из множества
     ContactData contact = new ContactData().withId(modifiedContact.getId()).withFirstname("Name")
             .withLastname("LastName").withAddress("Moscow, Petrovka 38")
             .withMobile("89020000001").withEmail("email@test.com");
     app.contact().modify(contact);
-    Set<ContactData> after = app.contact().all(); //Создаем список всех контактов после создания нового контакта
-    Assert.assertEquals(after.size(), before.size());
-
-    before.remove(modifiedContact);                                        //Удаляем из списка элемент который модифицируем
-    before.add(contact);                                                             //Добавляем в список уже модифицированный элемент
-    Assert.assertEquals(before, after);  //Сравниваем 2 отсортированных списка
-
+    Contacts after = app.contact().all(); //Создаем список всех контактов после создания нового контакта
+    assertEquals(after.size(), before.size());
+    assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
   }
 
 
