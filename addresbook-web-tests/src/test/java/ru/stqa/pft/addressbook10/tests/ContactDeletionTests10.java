@@ -26,6 +26,9 @@ public class ContactDeletionTests10 extends TestBase {
     int index = before.size() -1;
     app.contact().delete(index);
     app.goTo().homePage();
+    app.goTo().homePage();
+    app.goTo().homePage();
+    app.goTo().homePage();
     List<ContactData> after = app.contact().list(); //Создаем список всех контактов после создания нового контакта
     Assert.assertEquals(after.size(), before.size() -1);
 
