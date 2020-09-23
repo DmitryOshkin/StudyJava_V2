@@ -18,7 +18,7 @@ public class GroupCreationTests10 extends TestBase {
     Set<GroupData> after = app.group().all();
     Assert.assertEquals(after.size(), before.size() + 1);
 
-   // group.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());    //Вычисление максимального идентификатора через лямбда выражение.                                                          //Присваиваем максимальный элемент в качестве идетификатора новой группы
+    // group.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());    //Вычисление максимального идентификатора через лямбда выражение.                                                          //Присваиваем максимальный элемент в качестве идетификатора новой группы
     group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt());
     before.add(group);                                                             //Добавляем в множество уже модифицированный элемент
     Assert.assertEquals(before, after);  //сравнение упорядоченных списков
