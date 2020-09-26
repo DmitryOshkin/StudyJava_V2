@@ -16,10 +16,11 @@ public class ContactCreationTests10 extends TestBase {
     Contacts before = app.contact().all(); //Создаем список всех контактов до начала создания нового контакта
     ContactData contact = new ContactData().withFirstname("Name1")
             .withLastname("LastName").withAddress("Moscow, Petrovka 38")
-            .withMobile("89020000001").withEmail("email1@test.com").withGroup("test1");
+            .withHomePhone("89020000000").withMobilePhone("89020000001").withWorkPhone("89020000002")
+            .withEmail("email1@test.com").withEmail2("email2@test.com").withEmail3("email3@test.com").withGroup("test1");
     app.contact().create(contact, true);
+    assertThat(app.contact().сount(), equalTo(before.size() + 1));
     Contacts after = app.contact().all(); //Создаем список всех контактов после создания нового контакта
-    assertThat(after.size(), equalTo(before.size() + 1));
     assertThat(after, equalTo(
             before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
   }

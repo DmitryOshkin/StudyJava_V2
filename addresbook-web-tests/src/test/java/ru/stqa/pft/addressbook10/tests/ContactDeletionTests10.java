@@ -16,8 +16,9 @@ public class ContactDeletionTests10 extends TestBase {
     app.goTo().homePage();
     if (app.contact().all().size() == 0) {
       app.contact().create(new ContactData().withFirstname("Name1")
-              .withAddress("Moscow, Petrovka 38").withMobile("89020000001")
-              .withEmail("email1@test.com").withGroup("test1"), false);
+              .withAddress("Moscow, Petrovka 38")
+              .withHomePhone("89020000000").withMobilePhone("89020000001").withWorkPhone("89020000002")
+              .withEmail("email1@test.com").withEmail2("email2@test.com").withEmail3("email3@test.com").withGroup("test1"), false);
     }
   }
 
@@ -35,8 +36,8 @@ public class ContactDeletionTests10 extends TestBase {
     app.goTo().homePage();
     app.goTo().homePage();
     app.goTo().homePage();
+    assertThat(app.contact().сount(), equalTo(before.size() - 1));
     Contacts after = app.contact().all(); //Создаем список всех контактов после создания нового контакта
-    assertEquals(after.size(), before.size() - 1);
     assertThat(after, equalTo(before.without(deletedContact)));
   }
 }

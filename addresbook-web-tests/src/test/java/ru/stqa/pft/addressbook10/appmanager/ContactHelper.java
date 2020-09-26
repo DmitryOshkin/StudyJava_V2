@@ -7,12 +7,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook10.model.ContactData;
 import ru.stqa.pft.addressbook10.model.Contacts;
-import ru.stqa.pft.addressbook10.model.Groups;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
@@ -33,8 +29,12 @@ public class ContactHelper extends HelperBase {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
     type(By.name("address"), contactData.getAddress());
-    type(By.name("mobile"), contactData.getMobile());
+    type(By.name("home"), contactData.getHomePhone());
+    type(By.name("mobile"), contactData.getMobilePhone());
+    type(By.name("work"), contactData.getWorkPhone());
     type(By.name("email"), contactData.getEmail());
+    type(By.name("email2"), contactData.getEmail2());
+    type(By.name("email3"), contactData.getEmail3());
     if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup()); //Выбираю значение из выпадающего списка
     } else {
@@ -59,7 +59,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void initContactModificationById(int id) {
-    wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click();
+    wd.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
   }
 
   public void submitContactModification() {
@@ -94,6 +94,10 @@ public class ContactHelper extends HelperBase {
     return isElementPresent(By.name("selected[]"));
   }
 
+  public int сount() {
+    return wd.findElements(By.name("selected[]")).size();
+  }
+
   private Contacts contactCache = null;
 
   public Contacts all() {
@@ -106,13 +110,26 @@ public class ContactHelper extends HelperBase {
       List<WebElement> cells = element.findElements(By.cssSelector("td"));
       String firstname = cells.get(2).getText();                                                     //Получаем значение из каждого элемента методом getText
       String lastname = cells.get(1).getText();
+      String[] phones = cells.get(5).getText().split("\n");                           // режем строку на части с разделением через \n перевод строки
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));    //Получаем значение элемента внутри другого элемента
       contactCache.add(new ContactData().withId(id).withFirstname(firstname)
               .withLastname(lastname).withAddress("Moscow, Petrovka 38")
-              .withMobile("89020000001").withEmail("email1@test.com").withGroup("test1"));                //Добавляем созданный объект в список
+              .withEmail("email1@test.com").withGroup("test1")
+              .withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]));                //Добавляем созданный объект в список
     }
     return new Contacts(contactCache);
   }
 
 
+  public ContactData infoFromEditForm(ContactData contact) {
+    initContactModificationById(contact.getId());
+    String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
+    String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
+    String home = wd.findElement(By.name("home")).getAttribute("value");
+    String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
+    String work = wd.findElement(By.name("work")).getAttribute("value");
+   // returnToHomePage();
+    return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
+            .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
+  }
 }

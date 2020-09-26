@@ -16,8 +16,9 @@ public class ContactModificationTests10 extends TestBase {
     app.goTo().homePage();
     if (app.contact().all().size() == 0) {
       app.contact().create(new ContactData().withFirstname("Name1")
-              .withAddress("Moscow, Petrovka 38").withMobile("89020000001")
-              .withEmail("email1@test.com").withGroup("test1"), false);
+              .withAddress("Moscow, Petrovka 38")
+              .withHomePhone("89020000000").withMobilePhone("89020000001").withWorkPhone("89020000002")
+              .withEmail("email1@test.com").withEmail2("email2@test.com").withEmail3("email3@test.com").withGroup("test1"), false);
     }
   }
 
@@ -25,12 +26,14 @@ public class ContactModificationTests10 extends TestBase {
   public void testContactModification() {
     Contacts before = app.contact().all(); //Создаем список всех контактов до начала создания нового контакта
     ContactData modifiedContact = before.iterator().next(); //Возвращает любой элемент из множества
-    ContactData contact = new ContactData().withId(modifiedContact.getId()).withFirstname("Name")
-            .withLastname("LastName").withAddress("Moscow, Petrovka 38")
-            .withMobile("89020000001").withEmail("email@test.com");
+    ContactData contact = new ContactData().withId(modifiedContact.getId()).withFirstname("MName")
+            .withLastname("MLastName").withAddress("Moscow, Petrovka 38")
+            .withHomePhone("89020000009").withMobilePhone("89020000008").withWorkPhone("89020000007")
+            .withEmail("email9@test.com").withEmail2("email8@test.com").withEmail3("email7@test.com");
     app.contact().modify(contact);
+    assertThat(app.contact().сount(), equalTo(before.size()));
     Contacts after = app.contact().all(); //Создаем список всех контактов после создания нового контакта
-    assertEquals(after.size(), before.size());
+
     assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
   }
 
