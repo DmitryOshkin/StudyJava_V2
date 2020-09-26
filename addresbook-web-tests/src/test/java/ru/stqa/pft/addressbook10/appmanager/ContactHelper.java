@@ -110,12 +110,17 @@ public class ContactHelper extends HelperBase {
       List<WebElement> cells = element.findElements(By.cssSelector("td"));
       String firstname = cells.get(2).getText();                                                     //Получаем значение из каждого элемента методом getText
       String lastname = cells.get(1).getText();
-      String[] phones = cells.get(5).getText().split("\n");                           // режем строку на части с разделением через \n перевод строки
+      //String[] phones = cells.get(5).getText().split("\n");                           // режем строку на части с разделением через \n перевод строки
+      String allPhones = cells.get(5).getText();
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));    //Получаем значение элемента внутри другого элемента
+      /*contactCache.add(new ContactData().withId(id).withFirstname(firstname)
+              .withLastname(lastname).withAddress("Moscow, Petrovka 38")
+              .withEmail("email1@test.com").withGroup("test1")
+              .withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]));      */          //Добавляем созданный объект в список
       contactCache.add(new ContactData().withId(id).withFirstname(firstname)
               .withLastname(lastname).withAddress("Moscow, Petrovka 38")
               .withEmail("email1@test.com").withGroup("test1")
-              .withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]));                //Добавляем созданный объект в список
+              .withAllPhones(allPhones));
     }
     return new Contacts(contactCache);
   }
