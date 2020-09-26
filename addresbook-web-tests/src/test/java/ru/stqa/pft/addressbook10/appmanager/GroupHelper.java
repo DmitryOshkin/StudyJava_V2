@@ -55,6 +55,7 @@ public class GroupHelper extends HelperBase {
     initGroupCreation();
     fillGroupForm(group);
     submitGroupCreation();
+    groupCache = null;
     returnToGroupPage();
   }
   public void modify(GroupData group) {
@@ -62,12 +63,14 @@ public class GroupHelper extends HelperBase {
     initGroupModification();
     fillGroupForm(group);
     submitGroupModification();
+    groupCache = null;
     returnToGroupPage();
   }
 
   public void delete(GroupData group) {
     selectGroupById(group.getId());
     deleteSelectedGroups();
+    groupCache = null;
     returnToGroupPage();
   }
 
@@ -79,15 +82,20 @@ public class GroupHelper extends HelperBase {
    return wd.findElements(By.name("selected[]")).size();
   }
 
+  private Groups groupCache = null;
+
   public Groups all() {
-    Groups groups = new Groups();                                   //Создаем множество которое будет заполняться
+    if (groupCache != null){
+      return new Groups(groupCache);
+    }
+    groupCache = new Groups();                                   //Создаем множество которое будет заполняться
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));             //Создаем список объектов типа WebElement
     for (WebElement element : elements){                                                   //Проходим по всемм элементам списка elements
       String name = element.getText();                                                     //Получаем значение (имя группы) из каждого элемента методом getText
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));    //Получаем значение элемента внутри другого элемента
-      groups.add(new GroupData().withId(id).withName(name));                                              //Добавляем созданный объект в список
+      groupCache.add(new GroupData().withId(id).withName(name));                                              //Добавляем созданный объект в список
     }
-    return groups;
+    return new Groups(groupCache);
   }
 
 

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook10.model.ContactData;
 import ru.stqa.pft.addressbook10.model.Contacts;
+import ru.stqa.pft.addressbook10.model.Groups;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -69,6 +70,7 @@ public class ContactHelper extends HelperBase {
     gotoAddContactPage();
     fillContactForm(contact, true);
     submitContactCreation();
+    contactCache = null;
     returnToHomePage();
   }
 
@@ -77,12 +79,14 @@ public class ContactHelper extends HelperBase {
     initContactModificationById(contact.getId());
     fillContactForm(contact,false);
     submitContactModification();
+    contactCache = null;
     returnToHomePage();
   }
 
   public void delete(ContactData contact) {
     selectContactById(contact.getId());
     deleteSelectedContacts();
+    contactCache = null;
     closeAlertAccept();
   }
 
@@ -90,19 +94,24 @@ public class ContactHelper extends HelperBase {
     return isElementPresent(By.name("selected[]"));
   }
 
+  private Contacts contactCache = null;
+
   public Contacts all() {
-    Contacts contacts = new Contacts();                                   //Создаем множество который будет заполняться
+    if (contactCache != null) {
+      return new Contacts(contactCache);
+    }
+    contactCache = new Contacts();                                   //Создаем множество который будет заполняться
     List<WebElement> elements = wd.findElements(By.cssSelector("tr[name = 'entry']"));             //Создаем список объектов типа WebElement
     for (WebElement element : elements) {                                                   //Проходим по всемм элементам списка elements
       List<WebElement> cells = element.findElements(By.cssSelector("td"));
       String firstname = cells.get(2).getText();                                                     //Получаем значение из каждого элемента методом getText
       String lastname = cells.get(1).getText();
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));    //Получаем значение элемента внутри другого элемента
-      contacts.add(new ContactData().withId(id).withFirstname(firstname)
+      contactCache.add(new ContactData().withId(id).withFirstname(firstname)
               .withLastname(lastname).withAddress("Moscow, Petrovka 38")
               .withMobile("89020000001").withEmail("email1@test.com").withGroup("test1"));                //Добавляем созданный объект в список
     }
-    return contacts;
+    return new Contacts(contactCache);
   }
 
 
