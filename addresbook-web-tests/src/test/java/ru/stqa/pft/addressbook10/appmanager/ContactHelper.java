@@ -77,7 +77,7 @@ public class ContactHelper extends HelperBase {
   public void modify(ContactData contact) {
     // selectContact(index);
     initContactModificationById(contact.getId());
-    fillContactForm(contact,false);
+    fillContactForm(contact, false);
     submitContactModification();
     contactCache = null;
     returnToHomePage();
@@ -108,19 +108,25 @@ public class ContactHelper extends HelperBase {
     List<WebElement> elements = wd.findElements(By.cssSelector("tr[name = 'entry']"));             //Создаем список объектов типа WebElement
     for (WebElement element : elements) {                                                   //Проходим по всемм элементам списка elements
       List<WebElement> cells = element.findElements(By.cssSelector("td"));
-      String firstname = cells.get(2).getText();                                                     //Получаем значение из каждого элемента методом getText
-      String lastname = cells.get(1).getText();
+      String firstName = cells.get(2).getText();                                                     //Получаем значение из каждого элемента методом getText
+      String lastName = cells.get(1).getText();
       //String[] phones = cells.get(5).getText().split("\n");                           // режем строку на части с разделением через \n перевод строки
       String allPhones = cells.get(5).getText();
+      String allEmails = cells.get(4).getText();
+      String address = cells.get(3).getText();
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));    //Получаем значение элемента внутри другого элемента
       /*contactCache.add(new ContactData().withId(id).withFirstname(firstname)
               .withLastname(lastname).withAddress("Moscow, Petrovka 38")
               .withEmail("email1@test.com").withGroup("test1")
               .withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]));      */          //Добавляем созданный объект в список
-      contactCache.add(new ContactData().withId(id).withFirstname(firstname)
-              .withLastname(lastname).withAddress("Moscow, Petrovka 38")
-              .withEmail("email1@test.com").withGroup("test1")
-              .withAllPhones(allPhones));
+      contactCache.add(new ContactData()
+              .withId(id)
+              .withFirstname(firstName)
+              .withLastname(lastName)
+              .withGroup("test1")
+              .withAllPhones(allPhones)
+              .withAllEmails(allEmails)
+              .withAddress(address));
     }
     return new Contacts(contactCache);
   }
@@ -128,13 +134,26 @@ public class ContactHelper extends HelperBase {
 
   public ContactData infoFromEditForm(ContactData contact) {
     initContactModificationById(contact.getId());
-    String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
-    String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
+    String firstName = wd.findElement(By.name("firstname")).getAttribute("value");
+    String lastName = wd.findElement(By.name("lastname")).getAttribute("value");
     String home = wd.findElement(By.name("home")).getAttribute("value");
     String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
     String work = wd.findElement(By.name("work")).getAttribute("value");
-   // returnToHomePage();
-    return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
-            .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
+    String email = wd.findElement(By.name("email")).getAttribute("value");
+    String email2 = wd.findElement(By.name("email2")).getAttribute("value");
+    String email3 = wd.findElement(By.name("email3")).getAttribute("value");
+    String address = wd.findElement(By.name("address")).getAttribute("value");
+    // returnToHomePage();
+    return new ContactData()
+            .withId(contact.getId())
+            .withFirstname(firstName)
+            .withLastname(lastName)
+            .withHomePhone(home)
+            .withMobilePhone(mobile)
+            .withWorkPhone(work)
+            .withEmail(email)
+            .withEmail2(email2)
+            .withEmail3(email3)
+            .withAddress(address);
   }
 }
