@@ -6,10 +6,7 @@ import org.openqa.selenium.WebElement;
 import ru.stqa.pft.addressbook10.model.GroupData;
 import ru.stqa.pft.addressbook10.model.Groups;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class GroupHelper extends HelperBase {
 
@@ -58,6 +55,7 @@ public class GroupHelper extends HelperBase {
     groupCache = null;
     returnToGroupPage();
   }
+
   public void modify(GroupData group) {
     selectGroupById(group.getId());
     initGroupModification();
@@ -79,18 +77,18 @@ public class GroupHelper extends HelperBase {
   }
 
   public int сount() {
-   return wd.findElements(By.name("selected[]")).size();
+    return wd.findElements(By.name("selected[]")).size();
   }
 
   private Groups groupCache = null;
 
   public Groups all() {
-    if (groupCache != null){
+    if (groupCache != null) {
       return new Groups(groupCache);
     }
     groupCache = new Groups();                                   //Создаем множество которое будет заполняться
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));             //Создаем список объектов типа WebElement
-    for (WebElement element : elements){                                                   //Проходим по всемм элементам списка elements
+    for (WebElement element : elements) {                                                   //Проходим по всемм элементам списка elements
       String name = element.getText();                                                     //Получаем значение (имя группы) из каждого элемента методом getText
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));    //Получаем значение элемента внутри другого элемента
       groupCache.add(new GroupData().withId(id).withName(name));                                              //Добавляем созданный объект в список
