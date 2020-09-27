@@ -9,6 +9,8 @@
     <email>email 0</email>
     <email2>email2 0</email2>
     <email3>email3 0</email3>
+    <group>test 1</group>
+    <photo>src\test\resources\sketching_8.jpg</photo>
   </contact>
   <contact>
     <firstname>firstName 1</firstname>
@@ -20,6 +22,8 @@
     <email>email 1</email>
     <email2>email2 1</email2>
     <email3>email3 1</email3>
+    <group>test 1</group>
+    <photo>src\test\resources\sketching_8.jpg</photo>
   </contact>
   <contact>
     <firstname>firstName 2</firstname>
@@ -31,6 +35,8 @@
     <email>email 2</email>
     <email2>email2 2</email2>
     <email3>email3 2</email3>
+    <group>test 1</group>
+    <photo>src\test\resources\sketching_8.jpg</photo>
   </contact>
   <contact>
     <firstname>firstName 3</firstname>
@@ -42,6 +48,8 @@
     <email>email 3</email>
     <email2>email2 3</email2>
     <email3>email3 3</email3>
+    <group>test 1</group>
+    <photo>src\test\resources\sketching_8.jpg</photo>
   </contact>
   <contact>
     <firstname>firstName 4</firstname>
@@ -53,170 +61,7 @@
     <email>email 4</email>
     <email2>email2 4</email2>
     <email3>email3 4</email3>
-  </contact>
-  <contact>
-    <firstname>firstName 5</firstname>
-    <lastname>lastName 5</lastname>
-    <address>address 5</address>
-    <homePhone>+7(900)1235</homePhone>
-    <mobilePhone>8 900 1235</mobilePhone>
-    <workPhone>8-900-123-5</workPhone>
-    <email>email 5</email>
-    <email2>email2 5</email2>
-    <email3>email3 5</email3>
-  </contact>
-  <contact>
-    <firstname>firstName 6</firstname>
-    <lastname>lastName 6</lastname>
-    <address>address 6</address>
-    <homePhone>+7(900)1236</homePhone>
-    <mobilePhone>8 900 1236</mobilePhone>
-    <workPhone>8-900-123-6</workPhone>
-    <email>email 6</email>
-    <email2>email2 6</email2>
-    <email3>email3 6</email3>
-  </contact>
-  <contact>
-    <firstname>firstName 7</firstname>
-    <lastname>lastName 7</lastname>
-    <address>address 7</address>
-    <homePhone>+7(900)1237</homePhone>
-    <mobilePhone>8 900 1237</mobilePhone>
-    <workPhone>8-900-123-7</workPhone>
-    <email>email 7</email>
-    <email2>email2 7</email2>
-    <email3>email3 7</email3>
-  </contact>
-  <contact>
-    <firstname>firstName 8</firstname>
-    <lastname>lastName 8</lastname>
-    <address>address 8</address>
-    <homePhone>+7(900)1238</homePhone>
-    <mobilePhone>8 900 1238</mobilePhone>
-    <workPhone>8-900-123-8</workPhone>
-    <email>email 8</email>
-    <email2>email2 8</email2>
-    <email3>email3 8</email3>
-  </contact>
-  <contact>
-    <firstname>firstName 9</firstname>
-    <lastname>lastName 9</lastname>
-    <address>address 9</address>
-    <homePhone>+7(900)1239</homePhone>
-    <mobilePhone>8 900 1239</mobilePhone>
-    <workPhone>8-900-123-9</workPhone>
-    <email>email 9</email>
-    <email2>email2 9</email2>
-    <email3>email3 9</email3>
-  </contact>
-  <contact>
-    <firstname>firstName 10</firstname>
-    <lastname>lastName 10</lastname>
-    <address>address 10</address>
-    <homePhone>+7(900)12310</homePhone>
-    <mobilePhone>8 900 12310</mobilePhone>
-    <workPhone>8-900-123-10</workPhone>
-    <email>email 10</email>
-    <email2>email2 10</email2>
-    <email3>email3 10</email3>
-  </contact>
-  <contact>
-    <firstname>firstName 11</firstname>
-    <lastname>lastName 11</lastname>
-    <address>address 11</address>
-    <homePhone>+7(900)12311</homePhone>
-    <mobilePhone>8 900 12311</mobilePhone>
-    <workPhone>8-900-123-11</workPhone>
-    <email>email 11</email>
-    <email2>email2 11</email2>
-    <email3>email3 11</email3>
-  </contact>
-  <contact>
-    <firstname>firstName 12</firstname>
-    <lastname>lastName 12</lastname>
-    <address>address 12</address>
-    <homePhone>+7(900)12312</homePhone>
-    <mobilePhone>8 900 12312</mobilePhone>
-    <workPhone>8-900-123-12</workPhone>
-    <email>email 12</email>
-    <email2>email2 12</email2>
-    <email3>email3 12</email3>
-  </contact>
-  <contact>
-    <firstname>firstName 13</firstname>
-    <lastname>lastName 13</lastname>
-    <address>address 13</address>
-    <homePhone>+7(900)12313</homePhone>
-    <mobilePhone>8 900 12313</mobilePhone>
-    <workPhone>8-900-123-13</workPhone>
-    <email>email 13</email>
-    <email2>email2 13</email2>
-    <email3>email3 13</email3>
-  </contact>
-  <contact>
-    <firstname>firstName 14</firstname>
-    <lastname>lastName 14</lastname>
-    <address>address 14</address>
-    <homePhone>+7(900)12314</homePhone>
-    <mobilePhone>8 900 12314</mobilePhone>
-    <workPhone>8-900-123-14</workPhone>
-    <email>email 14</email>
-    <email2>email2 14</email2>
-    <email3>email3 14</email3>
-  </contact>
-  <contact>
-    <firstname>firstName 15</firstname>
-    <lastname>lastName 15</lastname>
-    <address>address 15</address>
-    <homePhone>+7(900)12315</homePhone>
-    <mobilePhone>8 900 12315</mobilePhone>
-    <workPhone>8-900-123-15</workPhone>
-    <email>email 15</email>
-    <email2>email2 15</email2>
-    <email3>email3 15</email3>
-  </contact>
-  <contact>
-    <firstname>firstName 16</firstname>
-    <lastname>lastName 16</lastname>
-    <address>address 16</address>
-    <homePhone>+7(900)12316</homePhone>
-    <mobilePhone>8 900 12316</mobilePhone>
-    <workPhone>8-900-123-16</workPhone>
-    <email>email 16</email>
-    <email2>email2 16</email2>
-    <email3>email3 16</email3>
-  </contact>
-  <contact>
-    <firstname>firstName 17</firstname>
-    <lastname>lastName 17</lastname>
-    <address>address 17</address>
-    <homePhone>+7(900)12317</homePhone>
-    <mobilePhone>8 900 12317</mobilePhone>
-    <workPhone>8-900-123-17</workPhone>
-    <email>email 17</email>
-    <email2>email2 17</email2>
-    <email3>email3 17</email3>
-  </contact>
-  <contact>
-    <firstname>firstName 18</firstname>
-    <lastname>lastName 18</lastname>
-    <address>address 18</address>
-    <homePhone>+7(900)12318</homePhone>
-    <mobilePhone>8 900 12318</mobilePhone>
-    <workPhone>8-900-123-18</workPhone>
-    <email>email 18</email>
-    <email2>email2 18</email2>
-    <email3>email3 18</email3>
-  </contact>
-  <contact>
-    <firstname>firstName 19</firstname>
-    <lastname>lastName 19</lastname>
-    <address>address 19</address>
-    <homePhone>+7(900)12319</homePhone>
-    <mobilePhone>8 900 12319</mobilePhone>
-    <workPhone>8-900-123-19</workPhone>
-    <email>email 19</email>
-    <email2>email2 19</email2>
-    <email3>email3 19</email3>
+    <group>test 1</group>
+    <photo>src\test\resources\sketching_8.jpg</photo>
   </contact>
 </list>
