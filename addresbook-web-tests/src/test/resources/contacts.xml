@@ -25,43 +25,4 @@
     <group>test 1</group>
     <photo>src\test\resources\sketching_8.jpg</photo>
   </contact>
-  <contact>
-    <firstname>firstName 2</firstname>
-    <lastname>lastName 2</lastname>
-    <address>address 2</address>
-    <homePhone>+7(900)1232</homePhone>
-    <mobilePhone>8 900 1232</mobilePhone>
-    <workPhone>8-900-123-2</workPhone>
-    <email>email 2</email>
-    <email2>email2 2</email2>
-    <email3>email3 2</email3>
-    <group>test 1</group>
-    <photo>src\test\resources\sketching_8.jpg</photo>
-  </contact>
-  <contact>
-    <firstname>firstName 3</firstname>
-    <lastname>lastName 3</lastname>
-    <address>address 3</address>
-    <homePhone>+7(900)1233</homePhone>
-    <mobilePhone>8 900 1233</mobilePhone>
-    <workPhone>8-900-123-3</workPhone>
-    <email>email 3</email>
-    <email2>email2 3</email2>
-    <email3>email3 3</email3>
-    <group>test 1</group>
-    <photo>src\test\resources\sketching_8.jpg</photo>
-  </contact>
-  <contact>
-    <firstname>firstName 4</firstname>
-    <lastname>lastName 4</lastname>
-    <address>address 4</address>
-    <homePhone>+7(900)1234</homePhone>
-    <mobilePhone>8 900 1234</mobilePhone>
-    <workPhone>8-900-123-4</workPhone>
-    <email>email 4</email>
-    <email2>email2 4</email2>
-    <email3>email3 4</email3>
-    <group>test 1</group>
-    <photo>src\test\resources\sketching_8.jpg</photo>
-  </contact>
 </list>

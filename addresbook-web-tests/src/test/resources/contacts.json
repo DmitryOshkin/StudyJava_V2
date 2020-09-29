@@ -24,44 +24,5 @@
     "email3": "email3 1",
     "group": "test 1",
     "photo": {}
-  },
-  {
-    "firstname": "firstName 2",
-    "lastname": "lastName 2",
-    "address": "address 2",
-    "homePhone": "+7(900)1232",
-    "mobilePhone": "8 900 1232",
-    "workPhone": "8-900-123-2",
-    "email": "email 2",
-    "email2": "email2 2",
-    "email3": "email3 2",
-    "group": "test 1",
-    "photo": {}
-  },
-  {
-    "firstname": "firstName 3",
-    "lastname": "lastName 3",
-    "address": "address 3",
-    "homePhone": "+7(900)1233",
-    "mobilePhone": "8 900 1233",
-    "workPhone": "8-900-123-3",
-    "email": "email 3",
-    "email2": "email2 3",
-    "email3": "email3 3",
-    "group": "test 1",
-    "photo": {}
-  },
-  {
-    "firstname": "firstName 4",
-    "lastname": "lastName 4",
-    "address": "address 4",
-    "homePhone": "+7(900)1234",
-    "mobilePhone": "8 900 1234",
-    "workPhone": "8-900-123-4",
-    "email": "email 4",
-    "email2": "email2 4",
-    "email3": "email3 4",
-    "group": "test 1",
-    "photo": {}
   }
 ]
