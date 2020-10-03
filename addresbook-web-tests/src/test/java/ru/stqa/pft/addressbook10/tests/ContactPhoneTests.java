@@ -4,6 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook10.model.ContactData;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -15,7 +16,8 @@ public class ContactPhoneTests extends TestBase {
   @BeforeMethod
   public void ensurePreconditions() {
     app.goTo().homePage();
-    if (app.contact().all().size() == 0) {
+    if (app.db().contacts().size() == 0 ) {
+      app.goTo().homePage();
       app.contact().create(new ContactData()
                       .withFirstname("Name1")
                       .withAddress("Moscow, Petrovka 38")
@@ -26,6 +28,7 @@ public class ContactPhoneTests extends TestBase {
                       .withEmail2("email2@test.com")
                       .withEmail3("email3@test.com")
                       .withGroup("test1")
+                      .withPhoto(new File("src/test/resources/sketching_8.jpg"))
               , false);
     }
   }

@@ -14,8 +14,8 @@ public class ContactModificationTests10 extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    app.goTo().homePage();
-    if (app.contact().all().size() == 0) {
+    if (app.db().contacts().size() == 0 ) {
+      app.goTo().homePage();
       app.contact().create(new ContactData()
               .withFirstname("Name1")
               .withAddress("Moscow, Petrovka 38")
@@ -25,13 +25,15 @@ public class ContactModificationTests10 extends TestBase {
               .withEmail("email1@test.com")
               .withEmail2("email2@test.com")
               .withEmail3("email3@test.com")
-              .withGroup("test1"), false);
+              .withGroup("test 1")
+              .withPhoto(new File("src/test/resources/sketching_8.jpg"))
+              , false);
     }
   }
 
   @Test //(enabled = false)
   public void testContactModification() {
-    Contacts before = app.contact().all(); //Создаем список всех контактов до начала создания нового контакта
+    Contacts before = app.db().contacts(); //Создаем список всех контактов до начала создания нового контакта
     ContactData modifiedContact = before.iterator().next(); //Возвращает любой элемент из множества
     ContactData contact = new ContactData()
             .withId(modifiedContact.getId())
@@ -45,10 +47,10 @@ public class ContactModificationTests10 extends TestBase {
             .withEmail2("email8@test.com")
             .withEmail3("email7@test.com")
             .withPhoto(new File("src/test/resources/sketching_7.jpg"));
-
+    app.goTo().homePage();
     app.contact().modify(contact);
     assertThat(app.contact().сount(), equalTo(before.size()));
-    Contacts after = app.contact().all(); //Создаем список всех контактов после создания нового контакта
+    Contacts after = app.db().contacts(); //Создаем список всех контактов после создания нового контакта
     assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
   }
 

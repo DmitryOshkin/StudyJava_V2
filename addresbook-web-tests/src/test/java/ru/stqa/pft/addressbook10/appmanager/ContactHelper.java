@@ -124,7 +124,7 @@ public class ContactHelper extends HelperBase {
               .withId(id)
               .withFirstname(firstName)
               .withLastname(lastName)
-              .withGroup("test1")
+              .withGroup("test 1")
               .withAllPhones(allPhones)
               .withAllEmails(allEmails)
               .withAddress(address));
@@ -144,6 +144,7 @@ public class ContactHelper extends HelperBase {
     String email2 = wd.findElement(By.name("email2")).getAttribute("value");
     String email3 = wd.findElement(By.name("email3")).getAttribute("value");
     String address = wd.findElement(By.name("address")).getAttribute("value");
+
     // returnToHomePage();
     return new ContactData()
             .withId(contact.getId())
