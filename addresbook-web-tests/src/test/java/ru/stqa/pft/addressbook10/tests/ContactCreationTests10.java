@@ -7,6 +7,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook10.model.ContactData;
 import ru.stqa.pft.addressbook10.model.Contacts;
+import ru.stqa.pft.addressbook10.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,21 +23,21 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactCreationTests10 extends TestBase {
 
-  @DataProvider
-  public Iterator<Object[]> validContactsFromCsv() throws IOException {
-    List<Object[]> list = new ArrayList<Object[]>();
-    try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.csv")))) {
-      String line = reader.readLine();
-      while (line != null) {
-        String[] split = line.split(";");
-        list.add(new Object[]{new ContactData().withFirstname(split[0]).withLastname(split[1]).withAddress(split[2])
-                .withHomePhone(split[3]).withMobilePhone(split[4]).withWorkPhone(split[5])
-                .withEmail(split[6]).withEmail2(split[7]).withEmail3(split[8]).withGroup(split[9])});
-        line = reader.readLine();
-      }
-      return list.iterator();
-    }
-  }
+// @DataProvider
+// public Iterator<Object[]> validContactsFromCsv() throws IOException {
+//   List<Object[]> list = new ArrayList<Object[]>();
+//   try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.csv")))) {
+//     String line = reader.readLine();
+//     while (line != null) {
+//       String[] split = line.split(";");
+//       list.add(new Object[]{new ContactData().withFirstname(split[0]).withLastname(split[1]).withAddress(split[2])
+//               .withHomePhone(split[3]).withMobilePhone(split[4]).withWorkPhone(split[5])
+//               .withEmail(split[6]).withEmail2(split[7]).withEmail3(split[8]).with(split[9])});
+//       line = reader.readLine();
+//     }
+//     return list.iterator();
+//   }
+// }
 
 
   @DataProvider
@@ -73,6 +74,7 @@ public class ContactCreationTests10 extends TestBase {
 
   @Test(dataProvider = "validContactsFromJson")//(enabled = false)
   public void testContactCreation(ContactData contact) throws Exception {
+    Groups groups = app.db().groups();
     app.goTo().homePage();
     Contacts before = app.db().contacts(); //Создаем список всех контактов до начала создания нового контакта
     app.contact().create(contact, true);
