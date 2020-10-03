@@ -38,7 +38,7 @@ public class ContactHelper extends HelperBase {
     attach(By.name("photo"), contactData.getPhoto());
     if (creation) {
       if (contactData.getGroups().size() > 0) {
-        Assert.assertTrue(contactData.getGroups().size() ==1);
+        Assert.assertTrue(contactData.getGroups().size() == 1);
         new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName()); //Выбираю значение из выпадающего списка
       }
     } else {
@@ -127,7 +127,7 @@ public class ContactHelper extends HelperBase {
               .withId(id)
               .withFirstname(firstName)
               .withLastname(lastName)
-             // .withGroup("test 1")
+              // .withGroup("test 1")
               .withAllPhones(allPhones)
               .withAllEmails(allEmails)
               .withAddress(address));

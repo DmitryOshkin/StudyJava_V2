@@ -13,7 +13,7 @@ public class ContactAddressTests extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    if (app.db().contacts().size() == 0 ) {
+    if (app.db().contacts().size() == 0) {
       app.goTo().homePage();
       app.contact().create(new ContactData()
                       .withFirstname("Name1")
@@ -24,7 +24,7 @@ public class ContactAddressTests extends TestBase {
                       .withEmail("email1@test.com")
                       .withEmail2("email2@test.com")
                       .withEmail3("email3@test.com")
-                    //  .withGroup("test1")
+                      //  .withGroup("test1")
                       .withPhoto(new File("src/test/resources/sketching_8.jpg"))
               , false);
     }

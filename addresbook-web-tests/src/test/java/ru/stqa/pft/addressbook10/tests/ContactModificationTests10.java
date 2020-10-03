@@ -14,19 +14,19 @@ public class ContactModificationTests10 extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    if (app.db().contacts().size() == 0 ) {
+    if (app.db().contacts().size() == 0) {
       app.goTo().homePage();
       app.contact().create(new ContactData()
-              .withFirstname("Name1")
-              .withAddress("Moscow, Petrovka 38")
-              .withHomePhone("+7(902)0000000")
-              .withMobilePhone("8 902 000 0001")
-              .withWorkPhone("8-902-000-0002")
-              .withEmail("email1@test.com")
-              .withEmail2("email2@test.com")
-              .withEmail3("email3@test.com")
-      //        .withGroup("test 1")
-              .withPhoto(new File("src/test/resources/sketching_8.jpg"))
+                      .withFirstname("Name1")
+                      .withAddress("Moscow, Petrovka 38")
+                      .withHomePhone("+7(902)0000000")
+                      .withMobilePhone("8 902 000 0001")
+                      .withWorkPhone("8-902-000-0002")
+                      .withEmail("email1@test.com")
+                      .withEmail2("email2@test.com")
+                      .withEmail3("email3@test.com")
+                      //        .withGroup("test 1")
+                      .withPhoto(new File("src/test/resources/sketching_8.jpg"))
               , false);
     }
   }
