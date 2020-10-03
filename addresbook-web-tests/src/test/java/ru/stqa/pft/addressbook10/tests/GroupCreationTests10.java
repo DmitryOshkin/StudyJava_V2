@@ -3,8 +3,6 @@ package ru.stqa.pft.addressbook10.tests;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook10.model.GroupData;
@@ -94,7 +92,7 @@ public class GroupCreationTests10 extends TestBase {
     Groups after = app.group().all();
     assertThat(after, equalTo(
             before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
-    }
+  }
 
   @Test
   public void testBadGroupCreation() throws Exception {

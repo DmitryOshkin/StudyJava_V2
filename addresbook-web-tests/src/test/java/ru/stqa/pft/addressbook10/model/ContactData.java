@@ -25,31 +25,31 @@ public class ContactData {
   private String lastname;
   @Expose
   @Column(name = "address")
-  @Type( type = "text")
+  @Type(type = "text")
   private String address;
   @Expose
   @Column(name = "home")
-  @Type( type = "text")
+  @Type(type = "text")
   private String homePhone;
   @Expose
   @Column(name = "mobile")
-  @Type( type = "text")
+  @Type(type = "text")
   private String mobilePhone;
   @Expose
   @Column(name = "work")
-  @Type( type = "text")
+  @Type(type = "text")
   private String workPhone;
   @Expose
   @Column(name = "email")
-  @Type( type = "text")
+  @Type(type = "text")
   private String email;
   @Expose
   @Column(name = "email2")
-  @Type( type = "text")
+  @Type(type = "text")
   private String email2;
   @Expose
   @Column(name = "email3")
-  @Type( type = "text")
+  @Type(type = "text")
   private String email3;
   @Expose
   @Transient  // не будет извлекаться из бд
@@ -60,7 +60,7 @@ public class ContactData {
   private String allEmails;
   @Expose
   @Column(name = "photo")
-  @Type( type = "text")
+  @Type(type = "text")
   private String photo;
 
   public int getId() {
