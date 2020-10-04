@@ -18,7 +18,8 @@ public class HelperBase {
   protected void click(By locator) {
     wd.findElement(locator).click();
   }
-  protected void selectByText (By locator,String text) {
+
+  protected void selectByText(By locator, String text) {
     click(locator);
     new Select(wd.findElement(locator)).selectByVisibleText(text);
     click(locator);

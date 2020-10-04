@@ -165,12 +165,12 @@ public class ContactHelper extends HelperBase {
 
   public void addToGroup(ContactData contact, GroupData group) {
     selectContactById(contact.getId());
-    selectByText (By.name("to_group"), group.getName());
+    selectByText(By.name("to_group"), group.getName());
     click(By.name("add"));
   }
 
   public void deleteContactFromGroup(ContactData contact, GroupData group) {
-    selectByText (By.name("group"), group.getName());
+    selectByText(By.name("group"), group.getName());
     selectContactById(contact.getId());
     click(By.name("remove"));
   }

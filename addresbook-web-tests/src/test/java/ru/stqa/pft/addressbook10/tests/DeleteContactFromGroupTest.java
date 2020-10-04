@@ -8,12 +8,8 @@ import ru.stqa.pft.addressbook10.model.GroupData;
 import ru.stqa.pft.addressbook10.model.Groups;
 
 import java.io.File;
-import java.util.Objects;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
-
-public class DeleteContactFromGroupTest extends TestBase{
+public class DeleteContactFromGroupTest extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
@@ -38,7 +34,7 @@ public class DeleteContactFromGroupTest extends TestBase{
   }
 
   @Test
-  public void testDeleteContactFromGroup () {
+  public void testDeleteContactFromGroup() {
     Contacts beforeContacts = app.db().contacts(); //Создаем список всех контактов до начала создания нового контакта
     ContactData contactForAdd = beforeContacts.iterator().next(); //Возвращает любой элемент из множества
     Groups beforeGroups = app.db().groups();

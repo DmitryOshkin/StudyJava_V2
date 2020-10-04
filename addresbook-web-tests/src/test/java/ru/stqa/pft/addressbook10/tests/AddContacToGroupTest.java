@@ -6,12 +6,10 @@ import ru.stqa.pft.addressbook10.model.ContactData;
 import ru.stqa.pft.addressbook10.model.Contacts;
 import ru.stqa.pft.addressbook10.model.GroupData;
 import ru.stqa.pft.addressbook10.model.Groups;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
-import java.util.Objects;
+
 import java.io.File;
 
-public class AddContacToGroupTest extends TestBase{
+public class AddContacToGroupTest extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
@@ -34,7 +32,6 @@ public class AddContacToGroupTest extends TestBase{
       app.group().create(new GroupData().withName("test 1"));
     }
   }
-
 
 
   @Test
