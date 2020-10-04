@@ -52,6 +52,7 @@ public class ContactModificationTests10 extends TestBase {
     assertThat(app.contact().сount(), equalTo(before.size()));
     Contacts after = app.db().contacts(); //Создаем список всех контактов после создания нового контакта
     assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
+    verifyContactListInUI();
   }
 
 

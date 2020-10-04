@@ -108,7 +108,7 @@ public class ContactData {
 
   public Groups getGroups() {
     return new Groups(groups);
-  }
+  } //возвращает список групп в который входит этот контакт
 
   public String getAllPhones() {
     return allPhones;

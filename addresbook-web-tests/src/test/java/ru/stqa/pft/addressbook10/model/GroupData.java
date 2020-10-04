@@ -30,7 +30,7 @@ public class GroupData {
   @Type(type = "text")
   private String footer;
 
-  @ManyToMany(mappedBy = "groups")
+  @ManyToMany(mappedBy = "groups", fetch = FetchType.EAGER)
   private Set<ContactData> contacts = new HashSet<ContactData>();
 
   public int getId() {
@@ -51,7 +51,7 @@ public class GroupData {
 
   public Contacts getContacts() {
     return new Contacts(contacts);
-  }
+  } //возвращаетс список контактов которые содержатся в этой группе
 
   public GroupData withId(int id) {
     this.id = id;

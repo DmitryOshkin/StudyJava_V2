@@ -81,6 +81,7 @@ public class ContactCreationTests10 extends TestBase {
     Contacts after = app.db().contacts(); //Создаем список всех контактов после создания нового контакта
     assertThat(after, equalTo(
             before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+    verifyContactListInUI();
   }
 
   @Test(enabled = false)
